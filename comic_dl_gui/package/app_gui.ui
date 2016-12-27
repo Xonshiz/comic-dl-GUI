@@ -7,17 +7,34 @@
     <x>0</x>
     <y>0</y>
     <width>1119</width>
-    <height>811</height>
+    <height>877</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Comc-dl GUI</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/gui_images/Logo.png</normaloff>:/gui_images/Logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QFormLayout" name="formLayout">
     <property name="fieldGrowthPolicy">
      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
     </property>
+    <item row="0" column="0" colspan="2">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="urlLabel">
       <property name="font">
@@ -43,6 +60,13 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="downloadButton">
+      <property name="text">
+       <string>Download</string>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="0" colspan="2">
      <spacer name="horizontalSpacer">
       <property name="orientation">
@@ -56,13 +80,6 @@
       </property>
      </spacer>
     </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="downloadButton">
-      <property name="text">
-       <string>Download</string>
-      </property>
-     </widget>
-    </item>
     <item row="4" column="0" colspan="2">
      <widget class="QTextBrowser" name="textArea">
       <property name="sizePolicy">
@@ -72,19 +89,6 @@
        </sizepolicy>
       </property>
      </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
@@ -127,17 +131,112 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionReport_Issue_2"/>
+   <addaction name="actionExit_2"/>
+  </widget>
   <action name="actionReport_Issue">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/gui_images/Report Issue.png</normaloff>:/gui_images/Report Issue.png</iconset>
+   </property>
    <property name="text">
     <string>Report Issue</string>
    </property>
+   <property name="statusTip">
+    <string>Report an Issue on Github</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/gui_images/Exit_Button.png</normaloff>:/gui_images/Exit_Button.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
+   <property name="statusTip">
+    <string>Exit this application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionReport_Issue_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/gui_images/Report Issue.png</normaloff>:/gui_images/Report Issue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Report Issue</string>
+   </property>
+   <property name="toolTip">
+    <string>Report Issue on Github</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/gui_images/Exit_Button.png</normaloff>:/gui_images/Exit_Button.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit the application</string>
+   </property>
   </action>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>559</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExit_2</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>559</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

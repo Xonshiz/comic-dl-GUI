@@ -3,6 +3,7 @@ import os
 from PyQt4 import QtCore, QtGui
 from package.gui import Ui_MainWindow
 from package.honcho import Honcho
+import webbrowser
 
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
@@ -10,6 +11,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
         self.downloadButton.clicked.connect(self.download_click)
+        self.actionReport_Issue.triggered.connect(self.report_issue)
+        self.actionReport_Issue_2.triggered.connect(self.report_issue)
+
+    def report_issue(self):
+        webbrowser.open('https://github.com/Xonshiz/comic-dl-GUI/issues/new')
 
     def download_click(self):
         # self.textArea.textCursor().insertHtml('Hello World!')

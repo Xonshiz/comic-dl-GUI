@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>gui_images/Exit_Button.png</file>
+    <file>gui_images/Logo.png</file>
+    <file>gui_images/Report Issue.png</file>
+</qresource>
+</RCC>
